@@ -1,23 +1,7 @@
-import Image from 'next/image';
+import CatEvent from '@/src/components/events/eventCard';
 
-const EventsCatPage = ({ data }: any) => {
-    return (
-        <div>
-            <h1>Event Page</h1>
-            {data.map((e: any) => (
-                <a key={e.id} href={`/events/${e.city}/${e.id}`}>
-                    <Image
-                        src={e.image}
-                        width={300}
-                        height={300}
-                        alt={e.title}
-                    />
-                    <h2>{e.title}</h2>
-                    <p>{e.description}</p>
-                </a>
-            ))}
-        </div>
-    );
+const EventsCatPage = ({ data, pageName }: any) => {
+    return <CatEvent data={data} pageName={pageName} />;
 };
 
 export default EventsCatPage;
@@ -45,6 +29,7 @@ export async function getStaticProps(context: any) {
     return {
         props: {
             data,
+            pageName: id,
         },
     };
 }
