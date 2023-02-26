@@ -1,4 +1,4 @@
-import CatEvent from '@/src/components/events/eventCard';
+import CatEvent from '@/src/components/events/catEvent';
 
 const EventsCatPage = ({ data, pageName }: any) => {
     return <CatEvent data={data} pageName={pageName} />;
